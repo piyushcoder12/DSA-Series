@@ -162,10 +162,10 @@ int findLength(Node* &head ) {
             }
             
             //step3:
-            newNode -> next = curr;
+            prev ->next = newNode;
 
             //step4:
-            prev -> next = newNode;
+            newNode->next = curr;
             
         }
         
@@ -271,7 +271,7 @@ int main()
     insertAtHead(head,tail,40);
 
     print(head);
-    //insertAtPosition(head, tail , 3, 3);
+    insertAtPosition(head, tail , 3, 3);
     // Node* first = new Node(10);
     // Node* second = new Node(20);
     // Node* third = new Node(30);
