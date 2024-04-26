@@ -21,6 +21,11 @@ class Node{
         this->data= data;
         this->next = NULL;
     }
+    // detructor call
+    ~Node(){
+        cout<<"Destructor Call for:"<<this->data<<endl;
+    }
+
 };
 
 
@@ -181,7 +186,79 @@ void print(Node*head)
     //cout<<"LL length is :  "<<count;
 }
 
+void deleteNode(Node* & head, Node*&tail,int position)
+{
+    //empty LL
+    if(head==NULL)
+    {
+        cout<<"Cannot delete , LL is empty"<<endl;
+        return;
+    }
 
+    // single element 
+    if(head== tail)
+    {
+        // single elememnmt 
+        Node*temp = head;
+        delete temp;
+        head = NULL;
+        tail = NULL;
+        return ;
+    }
+
+    int len = findLength(head);
+    // delete from head 
+    if(position == 1)
+    {
+        // first node delete 
+        // 1. create a temp node
+        Node*temp = head;
+        //2. 
+        head = head->next;
+
+        temp->next = NULL;
+
+        delete temp;
+    }
+    else if(position == len)
+    {
+        // last node ko delete kr do 
+        // find prev 
+        Node*prev = head;
+        while(prev->next!=tail)
+        {
+            prev = prev->next;
+        }
+
+        // prev node ka link null krdo
+        prev->next = NULL;
+        //delete tail
+        delete tail;
+        // update tail
+        tail= prev;
+    }
+    else{
+        // middle node ko delete kr do 
+
+        // step 1 set prev/curr pointers 
+        Node*prev =NULL;
+        Node*curr= head;
+        while(position!=1)
+        {
+            position--;
+            prev=curr;
+            curr= curr->next;
+        }
+        //step2 prev->next me curr->next add kr do
+         prev->next = curr->next;
+
+         //step3 node isolate krdo
+         curr->next= NULL;
+
+         // step 4 delete curr
+         delete curr;
+    }
+}
 int main()
 {
 
@@ -191,9 +268,10 @@ int main()
     insertAtHead(head,tail, 10);
     insertAtHead(head, tail , 20);
     insertAtHead(head,tail,30);
+    insertAtHead(head,tail,40);
 
     print(head);
-    insertAtPosition(head, tail , 3, 3);
+    //insertAtPosition(head, tail , 3, 3);
     // Node* first = new Node(10);
     // Node* second = new Node(20);
     // Node* third = new Node(30);
@@ -217,5 +295,8 @@ int main()
 
     // insertAtTail(head,tail,500);
 
-    // print(head);
-}
+    // print(head); 
+    deleteNode(head, tail, 2);
+    print(head);
+    cout<<endl;
+   }
