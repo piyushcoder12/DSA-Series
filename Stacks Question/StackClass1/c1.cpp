@@ -7,7 +7,7 @@ class Stack {
     int size;
     int top;
 
-    Stack(int size) {
+    Stack(int size) { // constructor to initialize of the array 
       arr = new int[size];
       this->size = size;
       this->top = -1;

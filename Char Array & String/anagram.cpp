@@ -33,7 +33,7 @@ bool anagram(string str1,string str2)
 int main()
 {
     string str1="listen";
-    string str2 ="siment";
+    string str2 ="silent";
 
     bool gb = anagram(str1,str2);
     if(gb)

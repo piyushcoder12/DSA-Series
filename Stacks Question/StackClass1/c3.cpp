@@ -1,3 +1,4 @@
+// Reverse a String in Stack 
 #include <iostream>
 #include<stack>
 using namespace std;
@@ -12,6 +13,8 @@ int main() {
   }
 
   cout << endl;
+
+  //print
   while( !st.empty() ) {
     cout << st.top()  ;
     st.pop();

@@ -23,7 +23,7 @@ void solve(stack<int> &st, int& pos, int &ans) {
 int getMiddleElement(stack<int> &st) {
   int size = st.size();
   if(st.empty()){
-    cout << "Stack is empty, no middle element" << endl;
+    cout << "Stack is empty, no middle element"<<" " << endl;
     return -1;
   }
   else {
@@ -51,10 +51,10 @@ int main() {
   st.push(50);
   st.push(60);
 
-  cout << "before size" << st.size() << endl; 
+  cout << "before size"<<" " << st.size() << endl; 
   int mid = getMiddleElement(st);
-  cout << "Middle element: " << mid << endl;
+  cout << "Middle element: "<<" " << mid << endl;
 
-  cout << "after size" << st.size() << endl; 
+  cout << "after size" <<" "<< st.size() << endl; 
   return 0;
 }
